@@ -2,8 +2,11 @@
 
 # Assessment
 This infrastructure consists of three primary applications that work together to process and store financial data.
+
 **Application #1** is a Windows MSSQL Server that allows financial analysts to login via RDP and upload spreadsheets of data that are processed and output as a JSON file to the attached Data drive.
+
 **Application #2** is a Linux web server comprised of a load balancer, two EC2 instances, and a MariaDB database. Analysts can take the JSON file from Application #1, upload it to Application #2, and process these transactions by visiting financials.example.com. This sends the JSON data to the next application.
+
 **Application #3** consists of a REST API and a MSSQL DB. The JSON file from the web server is recieved by the API, strips out unnecessary data, and sends it to the MSSQL DB where it is stored permanantly.
 
 # Design
@@ -11,8 +14,11 @@ I mostly followed the original design due to time constraints. However, I made s
 
 # Implementation
 This application is deployed via a CloudFormation template. You can import the template using the AWS CloudFormation console, or by using the AWS SAM CLI. Instructions on how to install AWS SAM can be found [on this page.](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/install-sam-cli.html#install-sam-cli-instructions) 
+
 To validate the template, run `sam validate --region us-east-1`
+
 To build the template, run `sam build --region us-east-1`
+
 To deploy the template, run `sam deploy --guided`
 
 # Optimization
