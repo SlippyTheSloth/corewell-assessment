@@ -1054,7 +1054,7 @@ Resources:
       GroupName: db-sg
       VpcId: !Ref EC2VPC00vpc087aee71528d7823300Uuskn
       SecurityGroupIngress:
-        - CidrIp: 73.18.50.218/32
+        - CidrIp: !Ref MaskLocalIP
           IpProtocol: tcp
           FromPort: 1433
           ToPort: 1433
@@ -1068,7 +1068,7 @@ Resources:
           SourceSecurityGroupId: sg-072a13e5920d80f5f
           ToPort: -1
           SourceSecurityGroupOwnerId: '992382512752'
-        - CidrIp: 73.18.50.218/32
+        - CidrIp: !Ref MaskLocalIP
           IpProtocol: tcp
           FromPort: 3389
           ToPort: 3389
